@@ -1,0 +1,48 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "LibraryGUI",
+      "request": "launch",
+      "mainClass": "LibraryGUI",
+      "projectName": "SCD Assignment 1_b89b4f14"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "projectName": "21L5807_cf3e996d"
+    },
+    {
+      "type": "java",
+      "name": "Launch with Arguments Prompt",
+      "request": "launch",
+      "mainClass": "",
+      "args": "${command:SpecifyProgramArgs}/Main.java"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java Program",
+      "request": "launch",
+      "mainClass": ""
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "projectName": "LMS_2254808"
+    }
+  ]
+}
