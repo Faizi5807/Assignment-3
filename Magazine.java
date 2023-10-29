@@ -22,6 +22,7 @@ class Magazine extends Item {
         Authors = y;
         MagID = Item.Id + 1;
         Item.Id++;
+        Content = "This is My Magazine content";
     }
 
     public void setTitle(String Name) {

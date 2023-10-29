@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "My_LMS_GUI",
+      "request": "launch",
+      "mainClass": "My_LMS_GUI",
+      "projectName": "SCD Assignment 1_b89b4f14"
+    },
+    {
+      "type": "java",
       "name": "LibraryGUI",
       "request": "launch",
       "mainClass": "LibraryGUI",

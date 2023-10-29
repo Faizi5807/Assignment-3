@@ -7,7 +7,7 @@ import java.util.List;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class LibraryGUI extends JFrame {
+public class My_LMS_GUI extends JFrame {
     private JTable table;
     private DefaultTableModel tableModel;
 
@@ -20,14 +20,14 @@ public class LibraryGUI extends JFrame {
         PopularityChartScreen popularityChartScreen = new PopularityChartScreen(Items);
     }
 
-    public LibraryGUI() {
+    public My_LMS_GUI() {
         setTitle("Library Management System");
         setSize(800, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         Library library = new Library();
-        library.readItem("types.txt");
+        library.readItem("Data.txt");
         Items = library.Items;
 
         tableModel = new DefaultTableModel();
@@ -117,7 +117,7 @@ public class LibraryGUI extends JFrame {
     };
 
     public void saveLibraryData() {
-        try (PrintWriter writer = new PrintWriter("dest.txt")) {
+        try (PrintWriter writer = new PrintWriter("Output.txt")) {
             for (Item libraryItem : Items) {
                 String ItemString = libraryItem.toString();
 
@@ -265,7 +265,7 @@ public class LibraryGUI extends JFrame {
             return;
         }
         Item selectedItem = Items.get(selecRow);
-        if (selectedItem instanceof Book) {
+        if (selectedItem != null) {
             JTextArea ContentField = new JTextArea(selectedItem.Content);
             ContentField.setWrapStyleWord(true); // Wrap words
             ContentField.setLineWrap(true); // Wrap lines
@@ -302,7 +302,7 @@ public class LibraryGUI extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new LibraryGUI();
+                new My_LMS_GUI();
             }
         });
     }

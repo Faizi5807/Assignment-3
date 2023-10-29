@@ -37,6 +37,7 @@ class Newspaper extends Item {
         date = y;
         PaperID = Item.Id + 1;
         Item.Id++;
+        Content = "This is My Newspaper content";
     }
 
     public void setTitle(String Name) {
