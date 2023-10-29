@@ -236,6 +236,28 @@ public class LibraryGUI extends JFrame {
         saveLibraryData();
     }
 
+    // private void readBook() {
+    // int selecRow = table.getSelectedRow();
+    // if (selecRow == -1) {
+    // JOptionPane.showMessageDialog(this, "Please select a library Item to Read.");
+    // return;
+    // }
+    // Item selectedItem = Items.get(selecRow);
+    // if (selectedItem instanceof Book) {
+    // JTextArea ContentField = new JTextArea(selectedItem.Content);
+    // ContentField.setSize(800, 600);
+    // ContentField.setEditable(false);
+    // JScrollPane scrollPane = new JScrollPane(ContentField);
+    // JDialog editDialog = new JDialog(this, "Read Item", false);
+    // editDialog.setLayout(new BorderLayout());
+    // editDialog.add(new JLabel("Content:"));
+    // editDialog.add(ContentField);
+    // editDialog.pack();
+    // editDialog.setVisible(true);
+    // // saveLibraryData();
+    // }
+
+    // }
     private void readBook() {
         int selecRow = table.getSelectedRow();
         if (selecRow == -1) {
@@ -245,18 +267,23 @@ public class LibraryGUI extends JFrame {
         Item selectedItem = Items.get(selecRow);
         if (selectedItem instanceof Book) {
             JTextArea ContentField = new JTextArea(selectedItem.Content);
-            ContentField.setSize(800, 600);
+            ContentField.setWrapStyleWord(true); // Wrap words
+            ContentField.setLineWrap(true); // Wrap lines
             ContentField.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(ContentField);
+
+            // Set the preferred size of the ContentField
+            ContentField.setPreferredSize(new Dimension(800, 600));
+
             JDialog editDialog = new JDialog(this, "Read Item", false);
             editDialog.setLayout(new BorderLayout());
-            editDialog.add(new JLabel("Content:"));
-            editDialog.add(ContentField);
+            editDialog.add(new JLabel("Content:"), BorderLayout.NORTH);
+            editDialog.add(scrollPane, BorderLayout.CENTER);
+
             editDialog.pack();
             editDialog.setVisible(true);
             // saveLibraryData();
         }
-
     }
 
     private void deleteBook() {
