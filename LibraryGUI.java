@@ -2,11 +2,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.table.DefaultTableCellRenderer;
 
 import java.util.List;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -39,7 +36,8 @@ public class LibraryGUI extends JFrame {
         tableModel.addColumn("Authors/Publisher");
         tableModel.addColumn("Publication Date/Year");
         tableModel.addColumn("Cost");
-        tableModel.addColumn("Read Item");
+
+        tableModel.addColumn("Read Data");
 
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -48,7 +46,7 @@ public class LibraryGUI extends JFrame {
         addButton = new JButton("Add Item");
         editButton = new JButton("Edit Item");
         deleteButton = new JButton("Delete Item");
-
+        JButton readButton = new JButton("Read");
         JButton viewPopularityButton = new JButton("View Popularity");
         viewPopularityButton.addActionListener(new ActionListener() {
             @Override
@@ -61,6 +59,8 @@ public class LibraryGUI extends JFrame {
         buttonPanel.add(editButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(viewPopularityButton);
+
+        buttonPanel.add(readButton);
 
         add(buttonPanel, BorderLayout.SOUTH);
 
@@ -84,6 +84,14 @@ public class LibraryGUI extends JFrame {
                 deleteBook();
             }
         });
+        readButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                readBook();
+            }
+
+        });
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -102,6 +110,7 @@ public class LibraryGUI extends JFrame {
                 }
             }
         });
+
         displayLibraryItems();
 
         setVisible(true);
@@ -122,7 +131,6 @@ public class LibraryGUI extends JFrame {
     private void displayLibraryItems() {
         for (Item libraryItem : Items) {
 
-            JButton readButton = new JButton("Read");
             tableModel.addRow(new Object[] {
                     Item.Id, libraryItem.title, libraryItem.getAuthor(),
                     libraryItem.getYear(), libraryItem.calculateCost()
@@ -226,6 +234,29 @@ public class LibraryGUI extends JFrame {
         editDialog.pack();
         editDialog.setVisible(true);
         saveLibraryData();
+    }
+
+    private void readBook() {
+        int selecRow = table.getSelectedRow();
+        if (selecRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a library Item to Read.");
+            return;
+        }
+        Item selectedItem = Items.get(selecRow);
+        if (selectedItem instanceof Book) {
+            JTextArea ContentField = new JTextArea(selectedItem.Content);
+            ContentField.setSize(800, 600);
+            ContentField.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(ContentField);
+            JDialog editDialog = new JDialog(this, "Read Item", false);
+            editDialog.setLayout(new BorderLayout());
+            editDialog.add(new JLabel("Content:"));
+            editDialog.add(ContentField);
+            editDialog.pack();
+            editDialog.setVisible(true);
+            // saveLibraryData();
+        }
+
     }
 
     private void deleteBook() {

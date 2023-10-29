@@ -17,6 +17,7 @@ public class Book extends Item {
         year = y;
         BookID = Item.Id + 1;
         Item.Id++;
+        Content = "This is My Book content";
     }
 
     public void setTitle(String Name) {

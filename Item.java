@@ -10,6 +10,7 @@ public class Item implements Configuration {
     protected int cost;
     public static int Id;
     public int popularityCount;
+    public String Content;
 
     public Item() {
         // Id = Id++;

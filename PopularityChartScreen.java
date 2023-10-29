@@ -33,13 +33,13 @@ public class PopularityChartScreen extends JFrame {
                 int ItemPopularity = libraryItem.popularityCount;
                 int barHeight = (int) (ItemPopularity / (double) totalPopularity * 300); // Scale the bar height
 
-                g.setColor(Color.gray);
+                g.setColor(Color.BLUE);
                 g.fillRect(x, y, barWidth, barHeight);
 
-                g.setColor(Color.black);
+                g.setColor(Color.GREEN);
                 g.drawString(libraryItem.title, x - 10, y + barHeight + 20);
 
-                g.setColor(Color.black);
+                g.setColor(Color.ORANGE);
                 g.drawString(String.valueOf(ItemPopularity), x - 10, y - 10);
 
                 x += 100;
