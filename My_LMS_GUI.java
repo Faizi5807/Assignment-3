@@ -17,7 +17,7 @@ public class My_LMS_GUI extends JFrame {
     private List<Item> Items;
 
     private void createAndShowPopularityChart() {
-        PopularityChartScreen popularityChartScreen = new PopularityChartScreen(Items);
+        PopularityChartGraphics popularityChartGrapihics = new PopularityChartGraphics(Items);
     }
 
     public My_LMS_GUI() {
