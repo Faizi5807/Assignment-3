@@ -1,0 +1,4 @@
+Book@64d1709c
+Magazine@5ce9f79d
+Newspaper@541101ba
+Book@3240245c

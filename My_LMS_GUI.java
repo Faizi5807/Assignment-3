@@ -31,13 +31,11 @@ public class My_LMS_GUI extends JFrame {
         Items = library.Items;
 
         tableModel = new DefaultTableModel();
-        tableModel.addColumn("ID");
+        tableModel.addColumn("No. of items");
         tableModel.addColumn("Title");
-        tableModel.addColumn("Authors/Publisher");
-        tableModel.addColumn("Publication Date/Year");
+        tableModel.addColumn("Author(s)");
+        tableModel.addColumn("Publised On");
         tableModel.addColumn("Cost");
-
-        tableModel.addColumn("Read Data");
 
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -98,7 +96,7 @@ public class My_LMS_GUI extends JFrame {
                 int row = table.rowAtPoint(e.getPoint());
                 if (row >= 0) {
                     table.setRowSelectionInterval(row, row);
-                    table.setSelectionBackground(Color.GREEN);
+                    table.setSelectionBackground(Color.CYAN);
                 }
             }
 
